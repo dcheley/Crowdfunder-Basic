@@ -22,6 +22,6 @@
 <% end %>
 
 <h2>Pledges</h2>
-<%= @project.pledges.each do |pledge| %>
+<% @project.pledges.each do |pledge| %>
   <p><%= pledge.user.first_name %> : $<%= pledge.dollar_amount %></p>
 <% end %>
