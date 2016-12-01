@@ -24,6 +24,10 @@ class ProjectsController < ApplicationController
       render :new
     end
    end
+# tried in PledgesController too
+   def total_pledged
+     total_pledged = @project.pledges.sum(params[:dollar_amount])
+   end
 
   private
   def project_params

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1><%= @user.first_name %>'s profile</h1>
+
+    <h2>Rewards:</h2>
+    <% @user.rewards.each do |reward| %>
+      <p><%= number_to_currency(reward.dollar_amount) %></p>
+      <p><%= reward.description %></p>
+    <% end %>
+
+    <h2>Pledges:</h2>
+    <% @user.pledges.each do |pledge| %>
+      <p>$<%= @pledge.user.dollar_amount %></p>
+    <% end %>
+  </body>
+</html>
