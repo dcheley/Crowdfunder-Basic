@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
 
     if @project.save
-
+      @project.user.first = project_owner
       redirect_to projects_url, notice: "You have successfully created #{@project.title}!"
     else
       flash[:notice] = "Failed to create project"
