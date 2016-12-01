@@ -5,15 +5,10 @@
 	<%= "#{time_ago_in_words(@project.end_date)} #{(@project.end_date > Time.now.utc ) ? 'remaining' : 'past deadline'}" %>
 </time>
 
-<% @project.pledges.each do |x| %>
-	<% counter = 0 %>
-	<% if x.user == current_user %>
-	<p class="backed-status">
-		You've backed <%= @project.title %>
-	</p>
-	<% counter += 1 %>
-	<% break if counter > 0 %>
-	<% end %>
+<% if @project.backed_by?(current_user) %>
+<p class="backed-status">
+	You've backed <%= @project.title %>
+</p>
 <% end %>
 
 <p><%= @project.description %></p>
