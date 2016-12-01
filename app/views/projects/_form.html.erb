@@ -6,12 +6,12 @@
 
   <div>
     <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.text_field :description%>
   </div>
 
   <div>
     <%= f.label :goal %>
-    <%= f.number_field :goal %>
+    <%= f.number_field :goal, step: 1, min: 1  %>
   </div>
 
   <div>
