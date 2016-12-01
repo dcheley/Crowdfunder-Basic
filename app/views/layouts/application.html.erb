@@ -23,7 +23,9 @@
           <%= link_to "Register", new_user_path %> |
           <%= link_to "Login", :login %>
         <% end %> |
-        <%= link_to "Profile", "/users/#{session[:user_id]}" %>
+        <% if current_user %>
+          <%= link_to "Profile", "/users/#{session[:user_id]}" %>
+        <% end %>
       </nav>
     </header>
 
