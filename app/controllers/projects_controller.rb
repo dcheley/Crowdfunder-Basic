@@ -22,7 +22,7 @@ class ProjectsController < ApplicationController
     if @project.save
       redirect_to projects_url, notice: "You have successfully created #{@project.title}!"
     else
-      flash[:notice] = "Failed to create project, please fill out ALL fields!"
+      flash[:notice] = "Failed to create project"
       render :new
     end
   end
