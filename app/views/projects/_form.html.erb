@@ -40,7 +40,7 @@
   </div>
 
   <p>Rewards</p>
-
+  <div class="nested-fields">
   <%= f.fields_for :rewards do |r| %>
     <%= render 'reward_fields', :f => r %>
   <% end %>
