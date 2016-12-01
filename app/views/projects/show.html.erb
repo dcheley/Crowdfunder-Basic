@@ -22,6 +22,8 @@
 <% end %>
 
 <h2>Pledges</h2>
+<h3>Backers: <%= @project.pledges.all.count%></h3>
+<h3>Pledged: </h3>
 <% @project.pledges.each do |pledge| %>
   <p><%= pledge.user.first_name %> : $<%= pledge.dollar_amount %></p>
 <% end %>
