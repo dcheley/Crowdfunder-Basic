@@ -1,23 +1,23 @@
 class ProjectsController < ApplicationController
-  before_action :require_login, only: [:new, :create]
+	before_action :require_login, only: [:new, :create]
 
-  def index
-    @projects = Project.all
-    @projects = @projects.order(:end_date)
-  end
+	def index
+		@projects = Project.all
+		@projects = @projects.order(:end_date)
+	end
 
-  def show
-    @project = Project.find(params[:id])
-  end
+	def show
+		@project = Project.find(params[:id])
+	end
 
-  def new
-    @project = Project.new
-    @project.rewards.build
-  end
+	def new
+		@project = Project.new
+		@project.rewards.build
+	end
 
-  def create
-    @project = Project.new(project_params)
-    @project.user = current_user
+	def create
+		@project = Project.new(project_params)
+		@project.user = current_user
 
     if @project.save
       redirect_to projects_url, notice: "You have successfully created #{@project.title}!"
@@ -27,8 +27,8 @@ class ProjectsController < ApplicationController
     end
   end
 
-  private
-  def project_params
-    params.require(:project).permit(:title, :description, :goal, :start_date, :end_date, :image, rewards_attributes: [:dollar_amount, :description])
-  end
+	private
+	def project_params
+		params.require(:project).permit(:title, :description, :goal, :start_date, :end_date, :image, rewards_attributes: [:dollar_amount, :description])
+	end
 end
