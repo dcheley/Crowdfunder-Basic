@@ -10,6 +10,7 @@ class PledgesController < ApplicationController
       redirect_to project_url(@pledge.project), notice: "You have successfully backed #{@pledge.project.title}!"
     else
       @project = @pledge.project
+      flash[:notice] = "Failed to process pledge"
       render 'projects/show'
     end
   end
