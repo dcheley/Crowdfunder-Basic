@@ -18,11 +18,11 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user = current_user
-    
+
     if @project.save
       redirect_to projects_url, notice: "You have successfully created #{@project.title}!"
     else
-      flash[:notice] = "Failed to create project"
+      flash[:notice] = "Failed to create project, please fill out ALL fields!"
       render :new
     end
   end
