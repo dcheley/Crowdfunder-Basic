@@ -1,14 +1,18 @@
 <h1><%= @project.title %></h1>
 
+<h2>Pledges</h2>
+<h3>Backers: <%= @project.pledges.all.count %></h3>
+<h3>Pledged: <%= @project.pledges.sum(:dollar_amount) %></h3>
+
 <time class="project-days-left">
 	<%= icon("clock-o") %>
 	<%= "#{time_ago_in_words(@project.end_date)} #{(@project.end_date > Time.now.utc ) ? 'remaining' : 'past deadline'}" %>
 </time>
 
 <% if @project.backed_by?(current_user) %>
-<p class="backed-status">
-	You've backed <%= @project.title %>
-</p>
+	<p class="backed-status">
+		You've backed <%= @project.title %>
+	</p>
 <% end %>
 
 <p><%= @project.description %></p>
@@ -32,9 +36,8 @@
 
 <% end %>
 
-<h2>Pledges</h2>
-<h3>Backers: <%= @project.pledges.all.count %></h3>
-<h3>Pledged: <%= @project.pledges.sum(:dollar_amount) %></h3>
-<% @project.pledges.each do |pledge| %>
-	<p><%= pledge.user.first_name %> : $<%= pledge.dollar_amount %></p>
+<% if current_user == @project.user %>
+	<% @project.pledges.each do |pledge| %>
+		<p><%= pledge.user.first_name %> : $<%= pledge.dollar_amount %></p>
+	<% end %>
 <% end %>
