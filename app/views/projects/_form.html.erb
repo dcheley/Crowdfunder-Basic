@@ -1,53 +1,53 @@
 <%= form_for(@project, html: {multipart: true}) do |f| %>
-  <% if @project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@project.errors.count, "error") %> Project field missing, prohibited this project!</h2>
-      <ul>
-      <% @project.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-  <% end %>
-      </ul>
-    </div>
+	<% if @project.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@project.errors.count, "error") %> Project field missing, prohibited this project!</h2>
+			<ul>
+			<% @project.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+	<% end %>
+			</ul>
+		</div>
 <% end %>
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
+	<div>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+	</div>
 
-  <div>
-    <%= f.label :description %>
-    <%= f.text_field :description%>
-  </div>
+	<div>
+		<%= f.label :description %>
+		<%= f.text_field :description%>
+	</div>
 
-  <div>
-    <%= f.label :goal %>
-    <%= f.number_field :goal, step: 1, min: 1  %>
-  </div>
+	<div>
+		<%= f.label :goal %>
+		<%= f.number_field :goal, step: 1, min: 1  %>
+	</div>
 
-  <div>
-    <%= f.label :image %>
-    <%= f.text_field :image %>
-  </div>
+	<div>
+		<%= f.label :image %>
+		<%= f.text_field :image %>
+	</div>
 
-  <div>
-    <%= f.label :start_date %>
-    <%= f.datetime_select :start_date, :start_year => Date.today.year %>
-  </div>
+	<div>
+		<%= f.label :start_date %>
+		<%= f.datetime_select :start_date, :start_year => Date.today.year %>
+	</div>
 
-  <div>
-    <%= f.label :end_date %>
-    <%= f.datetime_select :end_date, :start_year => Date.today.year %>
-  </div>
+	<div>
+		<%= f.label :end_date %>
+		<%= f.datetime_select :end_date, :start_year => Date.today.year %>
+	</div>
 
-  <p>Rewards</p>
-  <div class="nested-fields">
-  <%= f.fields_for :rewards do |r| %>
-    <%= render 'reward_fields', :f => r %>
-  <% end %>
-  </div>
+	<p>Rewards</p>
+	<div class="nested-fields">
+	<%= f.fields_for :rewards do |r| %>
+		<%= render 'reward_fields', :f => r %>
+	<% end %>
+	</div>
 
-  <div>
-    <%= link_to_add_association 'add reward', f, :rewards %>
-  </div>
-  <%= f.submit %>
-  <% end %>
+	<div>
+		<%= link_to_add_association 'add reward', f, :rewards %>
+	</div>
+	<%= f.submit %>
+	<% end %>
