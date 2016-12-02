@@ -15,6 +15,28 @@
 	</p>
 <% end %>
 
+<% @project.pledges.each do |backed| %>
+
+<% if backed.user == current_user %>
+	<p class="backed-status">
+		TESTING You've backed <%= @project.title %>
+	</p>
+<% end %>
+<% end %>
+
+<!-- def backed_by?(pledger)
+	pledges.each do |backed|
+		# counter = 0
+		if backed.user == pledger
+	# 		# true
+			# counter += 1
+	# 	else
+			false
+		# break if counter > 0
+		end
+	end
+end -->
+
 <p><%= @project.description %></p>
 <p>Goal: <%= number_to_currency(@project.goal) %></p>
 <p>Fundraising starts: <%= @project.start_date.strftime("%A %b %d %Y") %></p>
@@ -37,6 +59,7 @@
 <% end %>
 
 <% if current_user == @project.user %>
+	<%= @project.rewards.count %>
 	<% @project.pledges.each do |pledge| %>
 		<p><%= pledge.user.first_name %> : $<%= pledge.dollar_amount %></p>
 	<% end %>

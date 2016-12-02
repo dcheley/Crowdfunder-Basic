@@ -17,10 +17,12 @@ class Project < ActiveRecord::Base
 
 def backed_by?(pledger)
 	pledges.each do |backed|
-		counter = 0
+		# counter = 0
 		if backed.user == pledger
 			true
-			counter += 1
+			# counter += 1
+	# 	else
+			# false
 		# break if counter > 0
 		end
 	end
