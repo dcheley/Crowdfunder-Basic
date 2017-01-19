@@ -1,14 +1,11 @@
 # Crowdfunder
 
-A basic crowdfunding app that has a lot of features that could be implemented.
+A basic crowdfunding Rails app, this project began as a group assignment at Bitmaker.
+Our group of 4 was tasked with updating a very basic app, adding features to a pre-existing code base. 
 
-## Setup
+## Command Line Setup
 
-1. One group member should fork the repository to their account
-2. Add other group members as collaborators
-3. Clone the repository to your local machine
-4. Make sure Postgres is running
-4. Run `bundle install` (*This project uses PostgreSQL, it must be running first!*)
-5. Run `rails db:setup`
-
-Your project should now be ready to work on with seed data in the database.
+1. "bundle install"
+2. "rails s"
+3. Open a web browser
+4. Enter "localhost:3000" into the URL bar.
