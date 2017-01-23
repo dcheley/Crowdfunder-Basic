@@ -9,4 +9,4 @@ Our group of 4 was tasked with updating a very basic app, adding features to a p
 2. "rails s"
 3. "rails db:setup"
 4. Open a web browser
-5. Enter "localhost:3000" into the URL bar.
+5. Enter `http://localhost:3000` into the URL view.
